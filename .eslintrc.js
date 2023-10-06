@@ -48,13 +48,19 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: ['cypress.config.js'],
+      },
+    ],
   },
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: ['./tsconfig.json'],
+        project: ['./tsconfig.json', 'cypress/tsconfig.json'],
       },
       extends: ['airbnb-typescript', 'prettier', 'plugin:import/typescript'],
     },
