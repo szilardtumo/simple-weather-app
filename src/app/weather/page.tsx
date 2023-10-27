@@ -1,29 +1,20 @@
-import WeatherBackground from './_components/WeatherBackground';
-
-async function getWeatherData() {
-  const res = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=46.769379&lon=23.589954&appid=${process.env.OPENWEATHERMAP_API_KEY}`,
-    {
-      next: { revalidate: 3600 },
-    },
-  );
-
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    console.log('res', await res.json());
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
-}
+import { WeatherHero } from './_components';
+import { getWeatherData } from './_queries';
 
 export default async function WeatherPage() {
   const data = await getWeatherData();
   console.log('data', data);
 
   return (
-    <WeatherBackground>
-      <div>Content</div>
-    </WeatherBackground>
+    <div className="bg-base-100 min-h-screen flex justify-center items-center">
+      <WeatherHero
+        location={data.location}
+        currentTemp={data.main.temp}
+        minTemp={data.main.temp_min}
+        maxTemp={data.main.temp_max}
+        weatherDescription={data.weather.description}
+        weatherCode={data.weather.id}
+      />
+    </div>
   );
 }

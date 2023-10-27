@@ -26,6 +26,7 @@ module.exports = {
   ],
   rules: {
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+    'import/prefer-default-export': 'off',
     'import/no-duplicates': 'error',
     'import/order': [
       'error',
@@ -54,6 +55,7 @@ module.exports = {
         devDependencies: ['cypress.config.js'],
       },
     ],
+    'react/require-default-props': 'off',
   },
   overrides: [
     {
