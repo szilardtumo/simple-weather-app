@@ -9,8 +9,8 @@ export default async function WeatherPage() {
   console.log('## data', data);
 
   return (
-    <div className="bg-base-100 min-h-screen flex flex-col justify-center items-center">
-      <div className="alert bg-neutral max-w-lg mb-4">
+    <div className="bg-base-100 min-h-screen flex flex-col justify-center items-center gap-6">
+      <div className="alert bg-neutral max-w-lg">
         <InformationCircleIcon className="w-6 h-6" />
         {data.current.summary}
       </div>

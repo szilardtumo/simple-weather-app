@@ -15,7 +15,7 @@ interface WeatherTabsProps {
 
 export default function WeatherTabs({ hourly, daily }: WeatherTabsProps) {
   return (
-    <div className="w-full max-w-lg px-2 py-16 sm:px-0">
+    <div className="w-full max-w-lg">
       <Tab.Group>
         <Tab.List className="tabs tabs-boxed bg-neutral">
           <Tab className={({ selected }) => classNames('tab', selected && 'tab-active')}>Daily</Tab>
