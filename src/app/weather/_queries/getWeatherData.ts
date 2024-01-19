@@ -103,20 +103,22 @@ const parseOneCallWeatherData = (data: OneCallWeatherData): OneCallWeather => {
       minTemp: data.daily[0].temp.min,
       maxTemp: data.daily[0].temp.max,
       weather: data.current.weather[0],
+      summary: data.daily[0].summary,
     },
-    hourly: data.hourly.map((hourly) => ({
-      timestamp: hourly.dt * 1000,
-      temp: hourly.temp,
-      feelsLike: hourly.feels_like,
-      weather: hourly.weather[0],
+    hourly: data.hourly.map((hour) => ({
+      timestamp: hour.dt * 1000,
+      temp: hour.temp,
+      feelsLike: hour.feels_like,
+      weather: hour.weather[0],
     })),
-    daily: data.daily.map((daily) => ({
-      timestamp: daily.dt * 1000,
-      temp: daily.temp.day,
-      feelsLike: daily.feels_like.day,
-      minTemp: daily.temp.min,
-      maxTemp: daily.temp.max,
-      weather: daily.weather[0],
+    daily: data.daily.map((day) => ({
+      timestamp: day.dt * 1000,
+      temp: day.temp.day,
+      feelsLike: day.feels_like.day,
+      minTemp: day.temp.min,
+      maxTemp: day.temp.max,
+      weather: day.weather[0],
+      summary: day.summary,
     })),
   };
 };

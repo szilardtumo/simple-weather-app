@@ -1,3 +1,5 @@
+import { InformationCircleIcon } from '@heroicons/react/20/solid';
+
 import WeatherHero from './_components/WeatherHero';
 import WeatherTabs from './_components/WeatherTabs';
 import { getWeatherData } from './_queries/getWeatherData';
@@ -8,6 +10,10 @@ export default async function WeatherPage() {
 
   return (
     <div className="bg-base-100 min-h-screen flex flex-col justify-center items-center">
+      <div className="alert bg-neutral max-w-lg mb-4">
+        <InformationCircleIcon className="w-6 h-6" />
+        {data.current.summary}
+      </div>
       <WeatherHero
         location="Insert location"
         currentTemp={data.current.temp}

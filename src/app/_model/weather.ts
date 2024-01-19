@@ -12,6 +12,7 @@ export interface DailyWeather {
   minTemp: number;
   maxTemp: number;
   weather: WeatherCondition;
+  summary: string;
 }
 
 export interface HourlyWeather {
