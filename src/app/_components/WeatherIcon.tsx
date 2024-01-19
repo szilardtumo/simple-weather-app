@@ -1,12 +1,19 @@
+import classNames from 'classnames';
 import Image from 'next/image';
 
 interface WeatherIconProps {
   size: number;
   weatherCode: number;
   weatherDescription: string;
+  className?: string;
 }
 
-export default function WeatherIcon({ size, weatherCode, weatherDescription }: WeatherIconProps) {
+export default function WeatherIcon({
+  size,
+  weatherCode,
+  weatherDescription,
+  className,
+}: WeatherIconProps) {
   const getIconName = (code: number) => {
     if (code >= 200 && code < 300) {
       if ([201, 202, 230, 231, 232].includes(code)) {
@@ -52,7 +59,7 @@ export default function WeatherIcon({ size, weatherCode, weatherDescription }: W
 
   return (
     <Image
-      className="-my-6 filter invert"
+      className={classNames(className, 'filter invert')}
       src={`/icons/weather/${getIconName(weatherCode)}.svg`}
       alt={weatherDescription}
       width={size}

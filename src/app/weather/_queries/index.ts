@@ -1,1 +1,0 @@
-export { getWeatherData } from './getWeatherData';

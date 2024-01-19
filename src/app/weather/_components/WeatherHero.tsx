@@ -32,6 +32,7 @@ export default function WeatherHero({
         </div>
         <div className="flex flex-col">
           <WeatherIcon
+            className="-my-6"
             size={150}
             weatherCode={weatherCode}
             weatherDescription={weatherDescription}

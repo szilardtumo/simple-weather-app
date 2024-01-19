@@ -18,7 +18,9 @@
     "cy:run": "cypress run"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.18",
     "@tailwindcss/typography": "^0.5.10",
+    "classnames": "^2.5.1",
     "daisyui": "^3.9.2",
     "next": "13.5.4",
     "prettier": "^3.0.3",
